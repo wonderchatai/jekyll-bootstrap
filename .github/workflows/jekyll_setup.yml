@@ -29,7 +29,8 @@ jobs:
       run: |
         jekyll new . --force --skip-bundle
         echo "theme: minimal-mistakes-jekyll" >> _config.yml
-        echo "remote_theme: "mmistakes/minimal-mistakes@4.24.0"" >> _config.yml
+        # Remove remote_theme as we are adding it as a gem
+        bundle add minimal-mistakes-jekyll
         echo "plugins:" >> _config.yml
         echo "  - jekyll-feed" >> _config.yml
         echo "  - jekyll-include-cache" >> _config.yml
