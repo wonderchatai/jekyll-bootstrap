@@ -27,7 +27,7 @@ jobs:
 
     - name: Initialize Jekyll project with minimal-mistakes-jekyll theme
       run: |
-        bundle exec jekyll new . --force --skip-bundle
+        jekyll new . --force --skip-bundle
         echo "theme: minimal-mistakes-jekyll" >> _config.yml
         echo "remote_theme: "mmistakes/minimal-mistakes@4.24.0"" >> _config.yml
         bundle add jekyll-feed jekyll-include-cache jekyll-paginate jekyll-sitemap jekyll-archives jekyll-redirect-from jekyll-seo-tag jekyll-toc jemoji kramdown-parser-gfm rouge --group "jekyll_plugins"
