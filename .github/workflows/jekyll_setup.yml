@@ -30,7 +30,18 @@ jobs:
         jekyll new . --force --skip-bundle
         echo "theme: minimal-mistakes-jekyll" >> _config.yml
         echo "remote_theme: "mmistakes/minimal-mistakes@4.24.0"" >> _config.yml
-        bundle add jekyll-feed jekyll-include-cache jekyll-paginate jekyll-sitemap jekyll-archives jekyll-redirect-from jekyll-seo-tag jekyll-toc jemoji kramdown-parser-gfm rouge --group "jekyll_plugins"
+        echo "plugins:" >> _config.yml
+        echo "  - jekyll-feed" >> _config.yml
+        echo "  - jekyll-include-cache" >> _config.yml
+        echo "  - jekyll-paginate" >> _config.yml
+        echo "  - jekyll-sitemap" >> _config.yml
+        echo "  - jekyll-archives" >> _config.yml
+        echo "  - jekyll-redirect-from" >> _config.yml
+        echo "  - jekyll-seo-tag" >> _config.yml
+        echo "  - jekyll-toc" >> _config.yml
+        echo "  - jemoji" >> _config.yml
+        echo "  - kramdown-parser-gfm" >> _config.yml
+        echo "  - rouge" >> _config.yml
         bundle install
       working-directory: ${{ github.workspace }}
 
