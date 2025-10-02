@@ -26,90 +26,18 @@ The user then requested several refinements and debugging steps:
 # Example LLM Action and Output (Initial Setup Phase):
 
 ## LLM Action:
-```python
-# Initial directory creation for GitHub workflows
-print(default_api.create_directory(path=".github/workflows"))
-
-# Creation of the jekyll_setup.yml workflow
-print(default_api.create_file(content="""
-name: Jekyll Setup
-
-on:
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  setup-jekyll:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.x'
-        bundler-cache: true
-
-    - name: Install Jekyll and Bundler
-      run: |
-        gem install jekyll bundler
-
-    - name: Initialize Jekyll project with minimal-mistakes-jekyll theme
-      run: |
-        bundle exec jekyll new . --force --skip-bundle
-        echo "theme: minimal-mistakes-jekyll" >> _config.yml
-        echo "remote_theme: "mmistakes/minimal-mistakes@4.24.0"" >> _config.yml
-        bundle add jekyll-feed jekyll-include-cache jekyll-paginate jekyll-sitemap jekyll-archives jekyll-redirect-from jekyll-seo-tag jekyll-toc jemoji kramdown-parser-gfm rouge --group "jekyll_plugins"
-        bundle install
-      working-directory: ${{ github.workspace }}
-
-    - name: Add relevant patterns to .gitignore
-      run: |
-        echo "_site/" >> .gitignore
-        echo ".jekyll-cache/" >> .gitignore
-        echo ".sass-cache/" >> .gitignore
-        echo "vendor/" >> .gitignore
-        echo ".bundle/" >> .gitignore
-        echo "*.gem" >> .gitignore
-        echo "*.log" >> .gitignore
-        echo ".DS_Store" >> .gitignore
-        echo "Gemfile.lock" >> .gitignore
-        echo "node_modules/" >> .gitignore
-        echo ".vscode/" >> .gitignore
-        echo ".idea/" >> .gitignore
-
-    - name: Git config
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-
-    - name: Stage changes
-      run: git add .
-
-    - name: Commit and push changes
-      run: |
-        git commit -m "feat: Initial Jekyll project setup with minimal-mistakes-jekyll theme"
-        git push
-""", filename=".github/workflows/jekyll_setup.yml"))
-
-# Staging, committing, pushing, and dispatching the workflow
-print(default_api.stage_changes())
-print(default_api.commit_changes(message="feat: Add GitHub Actions workflow for Jekyll setup"))
-print(default_api.push_changes())
-print(default_api.dispatch_github_workflow(workflow_id="jekyll_setup.yml"))
-```
+- `default_api.create_directory`
+- `default_api.create_file`
+- `default_api.stage_changes`
+- `default_api.commit_changes`
+- `default_api.push_changes`
+- `default_api.dispatch_github_workflow`
 
 ## LLM Output:
-```text
-{"create_directory_response": {"results": ["{\"funcname\":\"create_directory\",\"message\":\"Directory '.github\\/workflows' created successfully.\",\"status\":\"success\"}"]}}
-{"create_file_response": {"results": ["{\"status\":\"success\",\"funcname\":\"create_file\",\"path\":\".github\\/workflows\\/jekyll_setup.yml\",\"message\":\"File `.github\\/workflows\\/jekyll_setup.yml` created successfully.\"}"]}}
-{"stage_changes_response": {"results": ["{\"status\":\"success\",\"funcname\":\"stage_changes\",\"message\":\"All changes have been staged.\"}"]}}
-{"commit_changes_response": {"results": ["{\"funcname\":\"commit_changes\",\"message\":\"Changes committed successfully.\",\"status\":\"success\"}"]}}
-{"push_changes_response": {"results": ["{\"remote_url\":\"https:\\/\\/github.com\\/wonderchatai\\/jekyll-bootstrap.git\",\"status\":\"success\",\"message\":\"Changes pushed successfully to origin.\",\"funcname\":\"push_changes\"}"]}}
-{"dispatch_github_workflow_response": {"results": ["{\"status\":\"success\",\"funcname\":\"dispatch_github_workflow\",\"message\":\"Successfully dispatched GitHub workflow 'jekyll_setup.yml' on ref 'main'.\"}"]}}
-I've set up the Jekyll project by dispatching a GitHub Actions workflow. You can monitor its progress in the 'Actions' tab of your repository.
+- `create_directory` response
+- `create_file` response
+- `stage_changes` response
+- `commit_changes` response
+- `push_changes` response
+- `dispatch_github_workflow` response
 ```
