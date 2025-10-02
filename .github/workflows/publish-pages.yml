@@ -29,12 +29,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true
-
-      - name: Install Jekyll and Bundler
-        run: |
-          gem install jekyll bundler
-          bundle install
+          bundler-cache: true # This installs gems from Gemfile.lock
 
       - name: Build Jekyll site
         run: bundle exec jekyll build
