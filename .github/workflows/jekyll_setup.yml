@@ -21,16 +21,31 @@ jobs:
         ruby-version: '3.2'
         bundler-cache: true
 
-    - name: Install Jekyll and Bundler
+    - name: Create initial Gemfile and install gems
       run: |
-        gem install jekyll bundler
+        echo "source 'https://rubygems.org'" > Gemfile
+        echo "gem 'jekyll'" >> Gemfile
+        echo "gem 'minimal-mistakes-jekyll'" >> Gemfile
+        echo "group :jekyll_plugins do" >> Gemfile
+        echo "  gem \"jekyll-feed\"" >> Gemfile
+        echo "  gem \"jekyll-include-cache\"" >> Gemfile
+        echo "  gem \"jekyll-paginate\"" >> Gemfile
+        echo "  gem \"jekyll-sitemap\"" >> Gemfile
+        echo "  gem \"jekyll-archives\"" >> Gemfile
+        echo "  gem \"jekyll-redirect-from\"" >> Gemfile
+        echo "  gem \"jekyll-seo-tag\"" >> Gemfile
+        echo "  gem \"jekyll-toc\"" >> Gemfile
+        echo "  gem \"jemoji\"" >> Gemfile
+        echo "  gem \"kramdown-parser-gfm\"" >> Gemfile
+        echo "  gem \"rouge\"" >> Gemfile
+        echo "end" >> Gemfile
+        bundle install
+      working-directory: ${{ github.workspace }}
 
-    - name: Initialize Jekyll project with minimal-mistakes-jekyll theme
+    - name: Initialize Jekyll project and configure theme
       run: |
-        jekyll new . --force --skip-bundle
+        bundle exec jekyll new . --force --skip-bundle
         echo "theme: minimal-mistakes-jekyll" >> _config.yml
-        # Remove remote_theme as we are adding it as a gem
-        bundle add minimal-mistakes-jekyll
         echo "plugins:" >> _config.yml
         echo "  - jekyll-feed" >> _config.yml
         echo "  - jekyll-include-cache" >> _config.yml
@@ -43,7 +58,6 @@ jobs:
         echo "  - jemoji" >> _config.yml
         echo "  - kramdown-parser-gfm" >> _config.yml
         echo "  - rouge" >> _config.yml
-        bundle install
       working-directory: ${{ github.workspace }}
 
     - name: Add relevant patterns to .gitignore
