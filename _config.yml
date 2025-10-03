@@ -1,3 +1,5 @@
+url: "https://wonderchatai.github.io"
+baseurl: "/jekyll-bootstrap"
 theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
