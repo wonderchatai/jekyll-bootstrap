@@ -25,11 +25,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Set up Ruby
+      - name: Set up Ruby and Install Dependencies
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true # This installs gems from Gemfile.lock
+          bundler-cache: true
+      - name: Install Bundler dependencies
+        run: bundle install
 
       - name: Build Jekyll site
         run: bundle exec jekyll build
