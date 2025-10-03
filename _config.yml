@@ -16,5 +16,3 @@ plugins:
 minimal_mistakes_skin: "default"
 head_scripts:
   - /assets/css/custom.css
-footer:
-  custom: _includes/footer/custom.html
