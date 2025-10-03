@@ -30,6 +30,10 @@ code {
   padding: 1em;
   margin-bottom: 1em;
   border-radius: 0 5px 5px 0;
+  overflow-wrap: break-word; /* Ensure long lines break */
+  word-wrap: break-word; /* Compatibility */
+  word-break: break-word; /* Break long words if necessary */
+  hyphens: auto; /* Allow hyphenation if possible */
 }
 
 /* Styling for rendered LLM responses */
@@ -39,4 +43,8 @@ code {
   padding: 1em;
   margin-bottom: 1em;
   border-radius: 0 5px 5px 0;
+  overflow-wrap: break-word; /* Ensure long lines break */
+  word-wrap: break-word; /* Compatibility */
+  word-break: break-word; /* Break long words if necessary */
+  hyphens: auto; /* Allow hyphenation if possible */
 }
