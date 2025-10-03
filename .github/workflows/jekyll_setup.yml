@@ -26,6 +26,11 @@ jobs:
         bundle exec jekyll new . --force --skip-bundle
       working-directory: ${{ github.workspace }}
 
+    - name: Remove default Jekyll welcome posts
+      run: |
+        rm -f _posts/*welcome-to-jekyll.markdown
+      working-directory: ${{ github.workspace }}
+
     - name: Create custom Gemfile
       run: |
         echo "source 'https://rubygems.org'" > Gemfile
