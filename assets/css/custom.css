@@ -22,3 +22,11 @@ code {
   overflow-wrap: break-word !important; /* Newer property for wrapping, preferred */
   word-break: normal; /* Override break-all if it was applied globally */
 }
+
+/* Style for user prompt code blocks */
+pre:has(> code.user-prompt-content) {
+  background-color: #f0f8ff; /* Light blue background */
+  border-left: 5px solid #007bff; /* Blue border */
+  padding: 1em;
+  border-radius: 0 5px 5px 0;
+}

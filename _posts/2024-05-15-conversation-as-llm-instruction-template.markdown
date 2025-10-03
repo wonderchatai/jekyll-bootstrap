@@ -17,6 +17,7 @@ This page documents an interaction with an LLM to set up and configure a Jekyll 
 
 ### Prompt 1
 ```
+{:.user-prompt-content}
 Let’s setup a jekyll project. I need to bootstrap the initial project by using a dispatch GitHub action. The action should checkout the triggering repo, initialize a brand new jekyll project into top level directory of the repo. Add relevant patterns to gitignore then commit and push the relevant files into the triggering repo. The push needs content write permission. If possible I want the setup to use the minimal-mistakes-jekyll theme.
 ```
 
@@ -37,6 +38,7 @@ I've set up the Jekyll project by dispatching a GitHub Actions workflow. You can
 
 ### Prompt 2
 ```
+{:.user-prompt-content}
 You might need to pin ruby version
 ```
 
@@ -57,6 +59,7 @@ I've updated the `jekyll_setup.yml` workflow to pin the Ruby version to `3.2`. T
 
 ### Prompt 3
 ```
+{:.user-prompt-content}
 Dispatch and show me top level action link in markdown
 ```
 
@@ -72,6 +75,7 @@ I've dispatched the workflow. You can view the action's progress here: [https://
 
 ### Prompt 4
 ```
+{:.user-prompt-content}
 Run bundle exec jekyll new . --force --skip-bundle
 Could not locate Gemfile or .bundle/ directory
 ```
@@ -88,6 +92,7 @@ The error "Could not locate Gemfile or .bundle/ directory" indicates that Bundle
 
 ### Prompt 5
 ```
+{:.user-prompt-content}
 Add it to the bootstrap workflow
 ```
 
@@ -108,6 +113,7 @@ I've updated the `jekyll_setup.yml` workflow to remove `bundle exec` from the `j
 
 ### Prompt 6
 ```
+{:.user-prompt-content}
 [!] There was an error parsing `injected gems`: You cannot specify the same gem twice with different version requirements. You specified: jekyll-feed (~> 0.12) and jekyll-feed (>= 0). Gem already added. Bundler cannot continue. # from /home/runner/work/jekyll-bootstrap/jekyll-bootstrap/injected gems:1 # ------------------------------------------- > gem "jekyll-feed", ">= 0", group: :jekyll_plugins # gem "jekyll-include-cache", ">= 0", group: :jekyll_plugins # -------------------------------------------
 ```
 
@@ -129,6 +135,7 @@ I've updated the workflow to declare the Jekyll plugins directly in `_config.yml
 
 ### Prompt 7
 ```
+{:.user-prompt-content}
 Nice, pull, and list file tree in ascii
 ```
 
@@ -161,6 +168,7 @@ Changes pulled successfully from origin.
 
 ### Prompt 8
 ```
+{:.user-prompt-content}
 The existing publish pages action needs to update so that it builds then jekyll project and publish the generated asset.
 ```
 
@@ -180,6 +188,7 @@ I've updated the `publish-pages.yml` workflow to include steps for setting up Ru
 
 ### Prompt 9
 ```
+{:.user-prompt-content}
 Publish
 ```
 
@@ -195,6 +204,7 @@ The website has been published. You can view it at: [https://wonderchatai.github
 
 ### Prompt 10
 ```
+{:.user-prompt-content}
 Run bundle exec jekyll build
 Configuration file: /home/runner/work/jekyll-bootstrap/jekyll-bootstrap/_config.yml
                     ------------------------------------------------
@@ -221,6 +231,7 @@ I've updated the `jekyll_setup.yml` workflow. I removed the `remote_theme` line 
 
 ### Prompt 11
 ```
+{:.user-prompt-content}
 /opt/hostedtoolcache/Ruby/3.2.9/x64/lib/ruby/3.2.0/bundler/runtime.rb:304:in `check_for_activated_spec!': You have already activated rake 13.0.6, but your Gemfile requires rake 13.3.0. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
 ```
 
@@ -245,6 +256,7 @@ I've updated the `jekyll_setup.yml` workflow to address the `rake` version confl
 
 ### Prompt 12
 ```
+{:.user-prompt-content}
 Pull 
 ```
 
@@ -260,6 +272,7 @@ Changes pulled successfully from origin.
 
 ### Prompt 13
 ```
+{:.user-prompt-content}
 nice, now the the style is not working and the link to the post 404. Why?
 ```
 
@@ -280,6 +293,7 @@ The `_config.yml` file is indeed missing `baseurl` and `url` configurations, whi
 
 ### Prompt 14
 ```
+{:.user-prompt-content}
 Why are we updating the bootstrap flow? And not the publish flow?
 ```
 
@@ -295,6 +309,7 @@ That's an excellent question, and it highlights a crucial distinction between th
 
 ### Prompt 15
 ```
+{:.user-prompt-content}
 Dispatch
 ```
 
@@ -310,6 +325,7 @@ I've dispatched the `jekyll_setup.yml` workflow. You can monitor its progress he
 
 ### Prompt 16
 ```
+{:.user-prompt-content}
 Pull and then publish
 ```
 
@@ -321,11 +337,12 @@ publish_website
 
 ### LLM Output 16
 ```
-Changes pulled successfully from origin. The website has been published. You can view it at: [https://wonderchatai.github.io/jekyll-bootstrap](https://github.com/wonderchatai/jekyll-bootstrap)
+Changes pulled successfully from origin. The website has been published. You can view it at: [https://wonderchatai.github.io/jekyll-bootstrap](https://wonderchatai.github.io/jekyll-bootstrap)
 ```
 
 ### Prompt 17
 ```
+{:.user-prompt-content}
 Very nice, can you update our post to include the new part of our conversation 
 ```
 
@@ -345,6 +362,7 @@ I've updated the Jekyll post `_posts/2024-05-15-conversation-as-llm-instruction-
 
 ### Prompt 18
 ```
+{:.user-prompt-content}
 files found in paths: [IMG_2794.png]. The code block in the post is not wrapping on mobile. I also attached a screenshot of our initial conversation from our app WonderChat. Name the screenshot appropriately and add it to the top of our post. We can remove the other boilerplate posts from the main page. I want to add promotion. At the footer of the site add Built with WonderChat AI linking to https://wonderchat.dev
 ```
 
@@ -372,6 +390,7 @@ I've created the custom CSS file. I've updated the `_config.yml` to include the 
 
 ### Prompt 19
 ```
+{:.user-prompt-content}
 Where is the welcome to jekyll posts coming from?
 ```
 
