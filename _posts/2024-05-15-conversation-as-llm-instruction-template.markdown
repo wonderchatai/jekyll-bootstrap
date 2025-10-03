@@ -9,6 +9,10 @@ categories: jekyll github-actions llm
 
 This page documents an interaction with an LLM to set up and configure a Jekyll project using GitHub Actions.
 
+## WonderChat Screenshot of Initial Prompt and Response
+
+![WonderChat Screenshot of Initial Prompt and Response](/assets/images/wonderchat-initial-prompt.png)
+
 ## Conversation Log
 
 ### Prompt 1
@@ -346,4 +350,25 @@ publish_website
 
 ```
 Changes pulled successfully from origin. The website has been published. You can view it at: [https://wonderchatai.github.io/jekyll-bootstrap](https://wonderchatai.github.io/jekyll-bootstrap)
+```
+
+### Prompt 17
+
+```
+Very nice, can you update our post to include the new part of our conversation 
+```
+
+### LLM Action 17
+```
+read_file
+update_file
+stage_changes
+commit_changes
+push_changes
+```
+
+### LLM Output 17
+
+```
+I've updated the Jekyll post `_posts/2024-05-15-conversation-as-llm-instruction-template.markdown` to include the latest parts of our conversation, following the specified format.
 ```
