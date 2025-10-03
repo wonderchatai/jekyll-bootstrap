@@ -1,0 +1,5 @@
+main:
+  - title: "Home"
+    url: /jekyll-bootstrap/
+  - title: "Conversation Log"
+    url: /jekyll-bootstrap/posts/2024-05-15-conversation-as-llm-instruction-template/

@@ -372,3 +372,32 @@ push_changes
 ```
 I've updated the Jekyll post `_posts/2024-05-15-conversation-as-llm-instruction-template.markdown` to include the latest parts of our conversation, following the specified format.
 ```
+
+### Prompt 18
+
+```
+files found in paths: [IMG_2794.png]. The code block in the post is not wrapping on mobile. I also attached a screenshot of our initial conversation from our app WonderChat. Name the screenshot appropriately and add it to the top of our post. We can remove the other boilerplate posts from the main page. I want to add promotion. At the footer of the site add Built with WonderChat AI linking to https://wonderchat.dev
+```
+
+### LLM Action 18
+```
+move_file
+create_directory
+move_file
+read_file
+create_file
+read_file
+create_directory
+create_file
+update_file
+delete_file
+delete_file
+create_file
+stage_changes
+```
+
+### LLM Output 18
+
+```
+I've created the custom CSS file. I've updated the `_config.yml` to include the custom CSS and the custom footer. I've removed the boilerplate pages. Now, I'll create a clean `index.html` to serve as the main page and list your posts. I've updated the Jekyll post to include the screenshot. Now, I will add the footer promotion and remove the boilerplate posts. I've created the custom footer include. I've prepared the custom CSS and footer include. Now, I will update `_config.yml` to ensure these are utilized by the theme, and then proceed with removing the boilerplate posts.
+```
