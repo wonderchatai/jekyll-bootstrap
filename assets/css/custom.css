@@ -3,8 +3,8 @@
 /* Ensure code blocks wrap on mobile and lists within them display correctly */
 pre {
   white-space: pre-wrap !important; /* Preserves whitespace and wraps text */
-  word-wrap: break-word !important; /* Older property for wrapping */
-  overflow-wrap: break-word !important; /* Newer property for wrapping */
+  word-wrap: break-word !important; /* Breaks words if they overflow container */
+  overflow-wrap: break-word !important; /* Newer property for wrapping, preferred */
   line-height: 1.5 !important; /* Ensure adequate line spacing */
 }
 
@@ -16,7 +16,9 @@ pre code {
   display: block; /* Ensure each code line acts as a block */
 }
 
-/* Ensure general code elements also wrap */
+/* Ensure general code elements also wrap without breaking words unnaturally */
 code {
-  word-break: break-all; /* Breaks words at any character to prevent overflow */
+  word-wrap: break-word !important; /* Breaks words if they overflow container */
+  overflow-wrap: break-word !important; /* Newer property for wrapping, preferred */
+  word-break: normal; /* Override break-all if it was applied globally */
 }
