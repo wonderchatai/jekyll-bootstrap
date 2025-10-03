@@ -21,7 +21,12 @@ jobs:
         ruby-version: '3.2'
         bundler-cache: true
 
-    - name: Create initial Gemfile and install gems
+    - name: Initialize Jekyll project (with default structure)
+      run: |
+        bundle exec jekyll new . --force --skip-bundle
+      working-directory: ${{ github.workspace }}
+
+    - name: Create custom Gemfile
       run: |
         echo "source 'https://rubygems.org'" > Gemfile
         echo "gem 'jekyll'" >> Gemfile
@@ -39,13 +44,15 @@ jobs:
         echo "  gem \"kramdown-parser-gfm\"" >> Gemfile
         echo "  gem \"rouge\"" >> Gemfile
         echo "end" >> Gemfile
-        bundle install
       working-directory: ${{ github.workspace }}
 
-    - name: Initialize Jekyll project and configure theme
+    - name: Run bundle install for custom Gemfile
+      run: bundle install
+      working-directory: ${{ github.workspace }}
+
+    - name: Create custom _config.yml
       run: |
-        bundle exec jekyll new . --force --skip-bundle
-        echo "theme: minimal-mistakes-jekyll" >> _config.yml
+        echo "theme: minimal-mistakes-jekyll" > _config.yml
         echo "plugins:" >> _config.yml
         echo "  - jekyll-feed" >> _config.yml
         echo "  - jekyll-include-cache" >> _config.yml
