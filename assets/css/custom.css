@@ -22,33 +22,3 @@ code {
   overflow-wrap: break-word !important; /* Newer property for wrapping, preferred */
   word-break: normal; /* Override break-all if it was applied globally */
 }
-
-/* Styling for conversation log elements */
-.user-prompt {
-  background-color: #f0f0f0; /* Light gray background for user prompts */
-  padding: 1em;
-  margin-bottom: 1em;
-  border-left: 5px solid #007bff; /* Blue border for visual distinction */
-  border-radius: 0 5px 5px 0;
-}
-
-.llm-response {
-  padding: 1em;
-  margin-bottom: 1em;
-  border-left: 5px solid #28a745; /* Green border for LLM responses */
-  border-radius: 0 5px 5px 0;
-}
-
-.llm-response pre,
-.user-prompt pre {
-  background-color: transparent; /* Remove default background for code blocks within these divs */
-  border: none; /* Remove default border for code blocks within these divs */
-  padding: 0;
-}
-
-.llm-response code,
-.user-prompt code {
-    background-color: #e9ecef; /* Slightly darker background for inline code in responses */
-    padding: 0.2em 0.4em;
-    border-radius: 0.2em;
-}
