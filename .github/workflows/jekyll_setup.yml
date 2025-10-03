@@ -52,7 +52,9 @@ jobs:
 
     - name: Create custom _config.yml
       run: |
-        echo "theme: minimal-mistakes-jekyll" > _config.yml
+        echo "url: \"https://wonderchatai.github.io\"" > _config.yml
+        echo "baseurl: \"/jekyll-bootstrap\"" >> _config.yml
+        echo "theme: minimal-mistakes-jekyll" >> _config.yml
         echo "plugins:" >> _config.yml
         echo "  - jekyll-feed" >> _config.yml
         echo "  - jekyll-include-cache" >> _config.yml
