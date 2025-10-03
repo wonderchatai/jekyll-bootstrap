@@ -258,7 +258,7 @@ dispatch_github_workflow
 
 ### LLM Output 11
 <div class="llm-response">
-I understand the `rake` version conflict you're encountering. This often happens when a different version of a gem (like `rake`) is loaded before Bundler has a chance to manage the versions specified in your `Gemfile`. The solution is to ensure all relevant commands are run within the Bundler environment. I will update the `jekyll_setup.yml` workflow to be more robust in managing gems and executing Jekyll commands within the Bundler environment. The main changes will be:
+I understand the `rake` version conflict you're encountering. This often happens when a different version of a gem (like `rake`) is loaded before Bundler has a chance to manage the versions specified in your `Gemfile`. The solution is to ensure all relevant commands are run within the Bundler environment. The main changes will be:
 1. Consolidating gem installation by creating the `Gemfile` upfront and running `bundle install` once.
 2. Ensuring `bundle exec` precedes `jekyll new` to guarantee it uses the Bundler-managed Jekyll version.
 3. Removing redundant gem installation steps.
@@ -351,7 +351,7 @@ publish_website
 
 ### LLM Output 16
 <div class="llm-response">
-Changes pulled successfully from origin. The website has been published. You can view it at: [https://wonderchatai.github.io/jekyll-bootstrap](https://wonderchatai.github.io/jekyll-bootstrap)
+Changes pulled successfully from origin. The website has been published. You can view it at: [https://wonderchatai.github.io/jekyll-bootstrap](https://github.com/wonderchatai/jekyll-bootstrap)
 </div>
 
 ### Prompt 17
