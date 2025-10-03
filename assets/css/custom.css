@@ -1,4 +1,22 @@
-pre, code {
+/* Custom styles for the Jekyll theme */
+
+/* Ensure code blocks wrap on mobile and lists within them display correctly */
+pre {
+  white-space: pre-wrap !important; /* Preserves whitespace and wraps text */
+  word-wrap: break-word !important; /* Older property for wrapping */
+  overflow-wrap: break-word !important; /* Newer property for wrapping */
+  line-height: 1.5 !important; /* Ensure adequate line spacing */
+}
+
+/* Also apply to inline code elements if they appear in pre blocks */
+pre code {
   white-space: pre-wrap !important;
-  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  display: block; /* Ensure each code line acts as a block */
+}
+
+/* Ensure general code elements also wrap */
+code {
+  word-break: break-all; /* Breaks words at any character to prevent overflow */
 }
